@@ -14,7 +14,7 @@ export class ReactiveFormComponent implements OnInit {
   @Input() public  first_num: string;
   @Input() public  last_num: string;
   @Input() public  step_num: string;
-  @Output() public output = new EventEmitter();
+  @Output() public output = new EventEmitter(); 
 
   constructor( public formBuilder: FormBuilder, private tabService: TabService){
   }
