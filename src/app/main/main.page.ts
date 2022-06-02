@@ -7,9 +7,17 @@ import { Component } from '@angular/core';
 })
 export class MainPage {
   public result: Map<number,number>;
+  public result1: Map<number,number>;
+  public result2: Map<number,number>;
 
   ReceiveFromChild(event){
     this.result = event;
+  }
+  ReceiveFromChild1(event1){
+    this.result1 = event1;
+  }
+  ReceiveFromChild2(event2){
+    this.result2 = event2;
   }
 
   constructor() {}

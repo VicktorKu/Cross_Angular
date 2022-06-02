@@ -10,11 +10,15 @@ import { TabService } from '../services/tab/tab.service';
 export class ReactiveFormComponent implements OnInit {
   reactiveForm: FormGroup;
   xy = new Map()
+  xy1 = new Map()
+  xy2 = new Map()
   isSubmitted = false;
   @Input() public  first_num: string;
   @Input() public  last_num: string;
   @Input() public  step_num: string;
   @Output() public output = new EventEmitter(); 
+  @Output() public output1 = new EventEmitter(); 
+  @Output() public output2 = new EventEmitter(); 
 
   constructor( public formBuilder: FormBuilder, private tabService: TabService){
   }
@@ -41,6 +45,15 @@ export class ReactiveFormComponent implements OnInit {
     this.xy = this.tabService.getTab(start, end, h);
   
     this.output.emit(this.xy);
+
+    this.xy1 = this.tabService.getTab1(start, end, h);
+  
+    this.output1.emit(this.xy1);
+
+    this.xy2 = this.tabService.getTab2(start, end, h);
+  
+    this.output2.emit(this.xy2);
+
   }
   get errorControl() {
     return this.reactiveForm.controls;
@@ -48,7 +61,7 @@ export class ReactiveFormComponent implements OnInit {
   submitForm() {
     this.isSubmitted = true;
     if (!this.reactiveForm.valid) {
-      console.log('Please provide all the required values!')
+      console.log('Потрібні зміни')
       return false;
     } else {
       console.log(this.reactiveForm.value)

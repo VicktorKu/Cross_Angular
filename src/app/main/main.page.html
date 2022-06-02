@@ -6,23 +6,18 @@
     <ion-list>
       <ion-item>
         <ion-text>
-        1. Розробити сервіс для табулювання функції відповідно до варіанту 
-        </ion-text>
-      </ion-item>
-      <ion-item>
-        <ion-text>
-        2. Розробити сервіс для розрахунку значень функції за допомогою ряду
-        відповідно до варіанту 
+          Розробити сервіс для наближеного обчислення значення похідних елементарних функцій. Для пошуку похідної функції f (x) в точці x0 з кроком h можна скористатися формулою:
         </ion-text>
       </ion-item>
     </ion-list>    
   </ion-card>
   
   <ion-card>
-    <app-reactive-form (output)="ReceiveFromChild($event)" [first_num]="" 
+    <app-reactive-form (output)="ReceiveFromChild($event)" (output1)="ReceiveFromChild1($event1)" (output2)="ReceiveFromChild2($event2)" [first_num]="" 
      [last_num]="" [step_num]="">
     </app-reactive-form>
   </ion-card>
+  
   
   <ion-card>
     <ion-card-title>Вихід</ion-card-title>
@@ -31,6 +26,24 @@
         <ion-label>
           <ion-text>
             x = {{item.key}}, y = {{item.value.toFixed(3)}}
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item *ngFor="let item1 of result1 | keyvalue">
+        <ion-label>
+          <ion-text>
+            x = {{item1.key}}, y = {{item1.value.toFixed(3)}}
+          </ion-text>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+      <ion-item *ngFor="let item2 of result2 | keyvalue">
+        <ion-label>
+          <ion-text>
+            x = {{item2.key}}, y = {{item2.value.toFixed(3)}}
           </ion-text>
         </ion-label>
       </ion-item>
